@@ -5,10 +5,6 @@ import styles from "@/styles/Home.module.css";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import { useState } from "react";
-import PinkWaves from "../components/SvgComponents/PinkWaves";
-import Logo from "../components/SvgComponents/Logo";
-import DiscoChick from "../components/SvgComponents/DiscoChick";
-import MotoDiscoChick from "../components/SvgComponents/MotorBikeDIscoChick";
 import Parallax from "../components/Parallax";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -25,6 +21,7 @@ export async function getServerSideProps() {
 }
 
 export default function Home({ url }: { url: string }) {
+  
   const [message, setMessage] = useState("Hi 👋");
   const lambdaUrl = process.env.NEXT_PUBLIC_API_URL;
   if (!lambdaUrl) {
@@ -39,19 +36,7 @@ export default function Home({ url }: { url: string }) {
   return (
     <>
       <Parallax />
-      <div className="about">
-        <h2>Lorem ipsum</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit laborum
-          ipsam corrupti asperiores magnam quos cumque animi tempore vero
-          repellendus, harum odio neque quis, non temporibus. Inventore
-          asperiores repudiandae praesentium ut, fugit quo esse, placeat ullam
-          quibusdam perspiciatis delectus ducimus nihil. Dolorum nam veniam
-          aperiam sapiente corporis! Quisquam, veritatis repellendus?
-        </p>
-      </div>
-
-      <div>
+      <div className="">
         <button onClick={onClick}>
           Message is "<i>{message}</i>"
         </button>
